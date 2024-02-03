@@ -14,7 +14,7 @@ set(SIZE /home/benrit/opt/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-size)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # project settings
-project(stm32f429_test1 C CXX ASM)
+project(stm32f429 C CXX ASM)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
 

@@ -84,7 +84,13 @@
 #define AD7190_ID_REGISTER 0x20
 
 
-void ad7190_init(void);
+typedef enum {
+	Status_Ok = 0x00,
+	Status_Err = 0x01
+}Status_TypeDef;
+
+
+Status_TypeDef ad7190_init(void);
 void ad7190_reset(void);
 uint32_t ad7190_read_adc_value(uint8_t);
 

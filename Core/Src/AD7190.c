@@ -18,11 +18,9 @@ void AD7190_Error_Handler(void) {
 }
 
 
+Status_TypeDef ad7190_init(void){
 
-
-void ad7190_init(void){
-
-	printf("Initializing AD7190\r\n");
+	printf("Initializing AD7190...");
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_SPI1_CLK_ENABLE();
 	__NVIC_EnableIRQ(SPI1_IRQn);
@@ -62,7 +60,18 @@ void ad7190_init(void){
         AD7190_Error_Handler();
     }
 
+    ad7190_reset();
+    HAL_Delay(1);
 
+    uint8_t id = ad7190_read_8bit(AD7190_ID_REGISTER);
+    if ((id &0x0f) != 0x04){
+        printf("\twrong id %x\r\n", id);
+        return Status_Err;
+
+    }
+    printf("ok\r\n");
+
+    return Status_Ok;
 }
 
 
@@ -76,14 +85,13 @@ void ad7190_reset(void){
 	registerWord[4] = 0xFF;
 	registerWord[5] = 0xFF;
 	registerWord[6] = 0xFF;
-
 	HAL_SPI_Transmit(&spi1, registerWord, 7, 0xffff);
 }
 
 uint32_t ad7190_read_adc_value(uint8_t ch){
 
 
-
+	return 0;
 }
 
 
