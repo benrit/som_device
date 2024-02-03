@@ -8,6 +8,10 @@
 #ifndef INC_PCAP04_H_
 #define INC_PCAP04_H_
 
+#include "kernel.h"
 
+#include "main.h"
+
+void pcap04_init(void);
 
 #endif /* INC_PCAP04_H_ */

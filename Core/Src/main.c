@@ -22,8 +22,11 @@
 #include "cmsis_os.h"
 
 #include "AD7190.h"
+#include "pcap04.h"
+
 #include "ringBuffer.h"
 #include "kernel.h"
+
 
 DMA2D_HandleTypeDef hdma2d;
 LTDC_HandleTypeDef hltdc;
@@ -85,7 +88,7 @@ int main(void)
 
     kernel_init();
 
-    spi1_d.init();
+    pcap04_init();
 
 
     MX_GPIO_Init();
